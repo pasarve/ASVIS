@@ -1,0 +1,62 @@
+<?php # Script 16.1 - header.html
+// This page begins the HTML header for the site.
+
+// Start output buffering:
+ob_start();
+
+// Initialize a session:
+session_start();
+
+// Check for a $page_title value:
+if (!isset($page_title)) {
+$page_title = 'User Registration';
+}
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="lt" lang="lt">
+    <head>
+        <meta http-equiv="Content-Language" content="lt" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title><?php echo $page_title; ?></title>
+        <style type="text/css" media="screen">@import "includes/layout.css";</style>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.imask.js"></script>
+        <script type="text/javascript">
+	$(function(){
+		$('#inp1').iMask({
+			type : 'number'
+                });
+
+		$('#inp2').iMask({
+			  type : 'fixed'
+			, mask : '9999'
+		});
+
+		$('#inp3').iMask({
+			  type : 'fixed'
+			, mask : 'xxxxxxxxxxxxxxxxxxxx'
+		});
+		
+
+		$('#inp4').iMask({
+		      type      : 'fixed'
+		    , mask      : 'xxxxxxxxxxxxxxxxx'
+		    , stripMask : true
+		})
+                
+                $('#inp5').iMask({
+		      type      : 'fixed'
+		    , mask      : 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+		    , stripMask : true
+		})
+                
+                
+	});
+	</script>
+    </head>
+    <body>
+	
+        <div id="Header">Auto Servisas!!!11</div>
+        <div id="Content">
+            <!-- End of Header -->

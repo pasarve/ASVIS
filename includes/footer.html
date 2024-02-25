@@ -1,0 +1,59 @@
+<!-- End of Content -->
+</div>
+
+<div id="Menu">
+<a href="index.php" title="Pradinis tinklapio puslapis">Pradžia</a><br />
+<?php # Script 16.2 - footer.html
+// This page completes the HTML template.
+
+// Display links based upon the login status:
+if (isset($_SESSION['user_id'])) {
+
+	echo '
+        <a href="paslaugos.php" title="Siūlomos paslaugos">Siūlomos paslaugos</a><br />
+        <a href="mano_automobiliai.php" title="Mano Automobiliai">Mano Automobiliai</a><br />
+        <a href="logout.php" title="Atsijungti">Atsijungti</a><br />
+<a href="change_password.php" title="Keisti slaptažodį">Keisti slaptąžodį</a><br />
+
+';
+
+	// Add links if the user is an administrator:
+	if ($_SESSION['user_level'] == 1) {
+
+		echo '<br /><h4>Vadovo meniu</h4>';
+		echo '<a href="view_users.php" title="Peržiūrėti vartotojus">Paržiūrėti vartotojus</a><br />';
+		echo '<a href="paslaugu_sarasas.php" title="Peržiūrėti Paslaugas">Peržiūrėti paslaugas</a><br />';                
+                echo '<a href="uzsakymai.php" title="Uzsakymai">Užsakymų sąrašas</a><br />';
+                echo '<a href="ataskaitos.php" title="Ataskaitos">Atlikti darbai</a><br />';
+
+
+
+	}
+        
+        if ($_SESSION['user_level'] == 2) {
+        
+        echo '<br /><h4>Darbuotojo Meniu</h4>';
+        echo '<a href="uzsakymai.php" title="Uzsakymai">Užsakymai</a><br />';
+        echo '<a href="ataskaitos.php" title="Ataskaitos">Atlikti darbai</a><br />';
+        }
+	
+} else { //  Not logged in.
+
+    echo '
+    <a href="paslaugos.php" title="Siūlomos paslaugos">Siūlomos paslaugos</a><br />
+    <a href="register.php" title="Registruotis">Registruotis</a><br />
+    <a href="login.php" title="Login">Prisijungti</a><br />
+    <a href="forgot_password.php" title="Pamiršote slaptažodį?">Pamiršote slaptažodį?</a><br />
+';
+
+}
+?>
+
+</div>
+
+</body>
+</html>
+
+<?php // Flush the buffered output.
+ob_end_flush();
+?>
